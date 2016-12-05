@@ -44,7 +44,7 @@
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
-set history=500
+set history=5000
 
 " Enable filetype plugins
 filetype plugin on
@@ -93,7 +93,7 @@ endif
 set ruler
 
 " Height of the command bar
-set cmdheight=2
+"set cmdheight=2
 
 " A buffer becomes hidden when it is abandoned
 set hid
@@ -152,12 +152,7 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-try
-    colorscheme desert
-catch
-endtry
-
-set background=dark
+colorscheme desert
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -430,3 +425,80 @@ endfunction
 " if has("autocmd")
 "   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 "endif
+
+
+set number	"显示行号
+set showcmd
+set cmdheight=1 "命令部分高度为1
+set pastetoggle=<F12> "切换粘贴模式
+set nowrap
+
+"恢复光标到关闭前位置
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+
+let g:ycm_global_ycm_extra_conf = "/home/ljj/.ycm_extra_conf.py"
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
+map <s-j>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+"abbr
+abbr ipeb from IPython import embed; embed()
+abbr agps import argparse
+\<CR>parser = argparse.ArgumentParser()
+\<CR>parser.add_argument("-n", "--num", default=0, type=int, help="")
+\<CR>parser.add_argument("-g", "--debug", action="store_true")
+\<CR>args = parser.parse_args()
+abbr cv2show import cv2
+\<CR>cv2.imshow('img', img)
+\<CR>if chr(cv2.waitKey(0) & 0xFF) == 'q':
+\<CR>exit()
+abbr basedir BASE_DIR = os.path.dirname(os.path.realpath(__file__))
+
+
+let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
+let g:DoxygenToolkit_paramTag_pre="@Param "
+let g:DoxygenToolkit_returnTag="@Returns   "
+let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
+let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
+let g:DoxygenToolkit_authorName="Jiajun Liang"
+"let g:DoxygenToolkit_licenseTag="My own license"   <-- !!! Does not end with "\<enter>"
+
+"imap <C-K
+
+
+" clang format
+"map <C-K> :pyf ~/.local/share/clang/clang-format.py<cr>
+map <C-K> <c-o>:pyf /home/ljj/clang/cfe-3.9.0.src/tools/clang-format/clang-format.py<cr>
+
+
+filetype plugin indent on
+filetype detect
+autocmd BufNewFile *.sh,*.py,*.cpp,*.h,*.cc,*.c,*.js exec ":call SetTitle()"
+func SetTitle()
+    if &filetype == 'sh'
+		call setline(1,"#!/bin/bash")
+		call append(line("."), "\# Created Time: ".strftime("%c"))
+		call append(line(".")+1, "\# Author: Jiajun Liang")
+		call append(line(".")+2, "\# Mail: tracyliang18@gmail.com")
+		call append(line(".")+3, "")
+    elseif &filetype == 'python'
+		call setline(1,"#!/usr/bin/python2")
+		call append(line("."), "\# -*- coding:utf-8 -*-")
+		call append(line(".")+1, "\# Created Time: ".strftime("%c"))
+		call append(line(".")+2, "\# Purpose: TODO")
+		call append(line(".")+3, "\# Mail: tracyliang18@gmail.com")
+		call append(line(".")+4, "")
+		call append(line(".")+5, "if __name__ == \"__main__\":")
+		call append(line(".")+6, "    pass")
+	else
+		call setline(1, "\/*")
+		call append(line("."), " * Author: Jiajun Liang")
+		call append(line(".")+1, " * Purpose: TODO")
+		call append(line(".")+2, " * Created Time: ".strftime("%c"))
+		call append(line(".")+3, " * Mail: tracyliang18@gmail.com ")
+		call append(line(".")+4, " *\/")
+		call append(line(".")+5, "")
+    endif
+endfunc
+"新建文件后，自动定位到文件末尾
+autocmd BufNewFile * normal G

@@ -167,3 +167,68 @@ nnoremap <silent> <leader>c :call SyntasticCheckCoffeescript()<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_enabled=0
 nnoremap <silent> <leader>d :GitGutterToggle<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Taglist 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Taglist
+let Tlist_Show_One_File=1 "只显示一个文件的tags
+let Tlist_Exit_OnlyWindow=1 "只剩下taglist时自动退出
+map tl :TlistToggle<CR><C-W><C-W>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Doxgen
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
+let g:DoxygenToolkit_paramTag_pre="@Param "
+let g:DoxygenToolkit_returnTag="@Returns   "
+let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
+let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
+let g:DoxygenToolkit_authorName="Jiajun Liang"
+"let g:DoxygenToolkit_licenseTag="My own license"   <-- !!! Does not end with "\<enter>"
+map <C-K> <c-o>:pyf /home/ljj/clang/cfe-3.9.0.src/tools/clang-format/clang-format.py<cr>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => ycm
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ycm_global_ycm_extra_conf = "/home/ljj/.ycm_extra_conf.py"
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
+map <s-j>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+
+"let g:solarized_termcolors=256
+"colorscheme solarized
+"set background=light
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => gruvbox
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"let g:gruvbox_constrast_dark=hard
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => nerdcomment
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
