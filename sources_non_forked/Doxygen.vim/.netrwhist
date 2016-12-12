@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/ljj/workspace/release/megvii3/brain/megdnn-v1/src'
+let g:netrw_dirhist_2='/home/ljj/workspace/release/megvii3/brain/megdnn-v1/include'
+let g:netrw_dirhist_3='/home/ljj/workspace/release/megvii3/brain/megdnn-v1/src'
+let g:netrw_dirhist_4='/home/ljj/workspace/release/megvii3/brain/megdnn-v1/src/naive'
+let g:netrw_dirhist_5='/home/ljj/workspace/release/megvii3/brain/megdnn-v1/src'
+let g:netrw_dirhist_6='/home/ljj/workspace/megtext/src/graph'
+let g:netrw_dirhist_7='/home/ljj/workspace/megtext/src/cg_model'
+let g:netrw_dirhist_8='/home/ljj/workspace/megtext/src/cardpp'
+let g:netrw_dirhist_9='/home/ljj/workspace/megtext/src/graph'

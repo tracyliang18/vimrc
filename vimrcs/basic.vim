@@ -455,15 +455,6 @@ abbr cv2show import cv2
 abbr basedir BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 
 
-let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
-let g:DoxygenToolkit_paramTag_pre="@Param "
-let g:DoxygenToolkit_returnTag="@Returns   "
-let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
-let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
-let g:DoxygenToolkit_authorName="Jiajun Liang"
-"let g:DoxygenToolkit_licenseTag="My own license"   <-- !!! Does not end with "\<enter>"
-
-"imap <C-K
 
 
 " clang format

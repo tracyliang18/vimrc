@@ -80,6 +80,8 @@ let g:NERDTreeWinSize=35
 map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark
 map <leader>nf :NERDTreeFind<cr>
+let NERDTreeMapOpenInTab='\r'
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -180,11 +182,9 @@ map tl :TlistToggle<CR><C-W><C-W>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Doxgen
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
-let g:DoxygenToolkit_paramTag_pre="@Param "
-let g:DoxygenToolkit_returnTag="@Returns   "
-let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
-let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
+let g:DoxygenToolkit_briefTag_pre="\\Brief  "
+let g:DoxygenToolkit_paramTag_pre="\\Param "
+let g:DoxygenToolkit_returnTag="\\Returns   "
 let g:DoxygenToolkit_authorName="Jiajun Liang"
 "let g:DoxygenToolkit_licenseTag="My own license"   <-- !!! Does not end with "\<enter>"
 map <C-K> <c-o>:pyf /home/ljj/clang/cfe-3.9.0.src/tools/clang-format/clang-format.py<cr>
@@ -196,7 +196,7 @@ map <C-K> <c-o>:pyf /home/ljj/clang/cfe-3.9.0.src/tools/clang-format/clang-forma
 let g:ycm_global_ycm_extra_conf = "/home/ljj/.ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
-map <s-j>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+noremap <C-]>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
 "let g:solarized_termcolors=256
@@ -213,22 +213,24 @@ map <s-j>  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " => nerdcomment
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
+"let g:NERDSpaceDelims = 1
 
 " Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
+"let g:NERDCompactSexyComs = 1
 
 " Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
+"let g:NERDDefaultAlign = 'left'
 
 " Set a language to use its alternate delimiters by default
-let g:NERDAltDelims_java = 1
+"let g:NERDAltDelims_java = 1
 
 " Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+"let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 
 " Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
+"let g:NERDCommentEmptyLines = 1
 
 " Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
+"let g:NERDTrimTrailingWhitespace = 1
+
+"let NERDTreeHijackNetrw=1
